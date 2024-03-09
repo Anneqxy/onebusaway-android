@@ -584,12 +584,17 @@ public class Application extends MultiDexApplication {
                     "Bus arrival notifications",
                     NotificationManager.IMPORTANCE_DEFAULT);
             channel2.setDescription("Notifications to remind the user of an arriving bus.");
+            channel2.setVibrationPattern(new long[]{0, 500, 100, 500});
+            channel2.enableVibration(true);
 
             NotificationChannel channel3 = new NotificationChannel(
                     CHANNEL_DESTINATION_ALERT_ID,
                     "Destination alerts",
                     NotificationManager.IMPORTANCE_LOW);
-            channel2.setDescription("All notifications relating to Destination alerts");
+            channel3.setDescription("All notifications relating to Destination alerts");
+            channel3.setVibrationPattern(new long[]{0, 250, 100, 250});
+            channel3.enableVibration(true);
+
 
             NotificationManager manager = getSystemService(NotificationManager.class);
             manager.createNotificationChannel(channel1);
